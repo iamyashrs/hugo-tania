@@ -7,7 +7,17 @@
   </div>
 </header>
 
-{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ with .Content }}
+<div class="container">
+    <section class="my">
+        <div class="content">
+            {{ . }}
+        </div>
+    </section>
+</div>
+{{ end }}
+
+{{ $projects := where .Site.Pages "Type" "eq" "project" }}
 
 <div class="container">
   {{ if gt (len $projects) 0}}
