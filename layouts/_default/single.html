@@ -32,6 +32,8 @@
 
 <div class="container">
     {{ if .Section }}
+    {{ partial "related" . }}
+
     <nav class="flex container suggested">
         {{ with .PrevInSection }}
         <a rel="prev" href="{{ .RelPermalink }}" title="Previous post (older)">
