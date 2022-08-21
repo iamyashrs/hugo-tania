@@ -6,9 +6,6 @@
     <meta name="theme-color" content="dark">
     <title>{{ if ne .Title .Site.Params.siteName}}{{ .Title }} | {{end}}{{.Site.Params.siteName}}</title>
 
-    {{ template "_internal/google_analytics.html" . }}
-    {{ template "_internal/google_analytics_async.html" . }}
-    
     <meta property="og:site_name" content="{{.Site.Params.siteName}}" />
     <meta property="og:title" content="{{with.Title}}{{.}} | {{end}}{{.Site.Params.siteName}}"/>
     <meta itemprop="name" content="{{with.Title}}{{.}} | {{end}}{{.Site.Params.siteName}}" />
@@ -25,5 +22,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}" />
     {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+    {{ template "_internal/google_analytics.html" . }}
+    {{ template "_internal/google_analytics_async.html" . }}
     {{ partial "head/custom.html" . }}
+
 </head>
